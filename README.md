@@ -2,6 +2,9 @@
 
 A complete full-stack mini project built with React, Tailwind CSS, Node.js, and Express.
 
+
+# Live Demo : https://employee-leave-management-system-live.vercel.app
+
 ## Features
 
 - Employee and admin login with separate role-based dashboards
