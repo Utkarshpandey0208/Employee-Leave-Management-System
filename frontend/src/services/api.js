@@ -5,12 +5,23 @@ const api = axios.create({
   timeout: 8000
 });
 
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem("leave_token");
+
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+
+  return config;
+});
+
 export const authApi = {
   login: (payload) => api.post("/auth/login", payload).then((res) => res.data)
 };
 
 export const employeeApi = {
-  getAll: () => api.get("/employees").then((res) => res.data)
+  getAll: () => api.get("/employees").then((res) => res.data),
+  add: (payload) => api.post("/employees/add", payload).then((res) => res.data)
 };
 
 export const leaveApi = {

@@ -10,6 +10,7 @@ import ApplyLeave from "./pages/ApplyLeave";
 import LeaveHistory from "./pages/LeaveHistory";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminPanel from "./pages/AdminPanel";
+import AddEmployee from "./pages/AddEmployee";
 
 function ProtectedRoute({ children, roles }) {
   const { user } = useAuth();
@@ -85,6 +86,14 @@ function AppRoutes() {
           element={
             <ProtectedRoute roles={["admin"]}>
               <AdminPanel />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/add-employee"
+          element={
+            <ProtectedRoute roles={["admin"]}>
+              <AddEmployee />
             </ProtectedRoute>
           }
         />
